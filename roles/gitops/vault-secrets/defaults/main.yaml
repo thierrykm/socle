@@ -94,6 +94,7 @@ envs:
         vault_values:
           auth:
             adminPassword: "{{ lookup('ansible.builtin.password', '/dev/null', length=24, chars=['ascii_letters', 'digits']) }}"
+            sonarApiToken: "{{ lookup('ansible.builtin.password', '/dev/null', length=24, chars=['ascii_letters', 'digits']) }}"
       - argocd_app: "harbor"
         vault_values:
           global:

@@ -14,8 +14,8 @@ spec:
     - matrix:
         generators:
           - git:
-              repoURL: {{ dsc.global.gitOps.repo.url }}
-              revision: {{ dsc.global.gitOps.repo.revision }}
+              repoURL: https://github.com/cloud-pi-native/socle.git
+              revision: feat/gitops-console-deployment3
               files:
                 - path: "{{ dsc.global.gitOps.repo.path }}/envs/*/*.json"
 {%- raw %}

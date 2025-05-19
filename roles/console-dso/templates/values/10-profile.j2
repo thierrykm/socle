@@ -1,4 +1,4 @@
-{% if dsc.global.profile is defined and dsc.global.profile == "cis" %}
+{% if dsc.global.platform == "kubernetes" %}
 client:
   container:
     securityContext:
