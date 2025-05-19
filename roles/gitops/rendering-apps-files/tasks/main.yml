@@ -20,4 +20,5 @@
           - argocd_app: glexporter
           - argocd_app: argocd
           - argocd_app: nexus
+          - argocd_app: certmanager
           - argocd_app: gitlaboperator
