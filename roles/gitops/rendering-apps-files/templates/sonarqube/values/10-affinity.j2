@@ -1,0 +1,10 @@
+sonarqube:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-sonarqube
+              app.kubernetes.io/name: {{ dsc.global.gitOps.envName }}-dso-sonarqube
+              app.kubernetes.io/component: sonarqube-sonarqube
+          topologyKey: kubernetes.io/hostname

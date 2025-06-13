@@ -1,0 +1,9 @@
+gitlab-runner:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              release: {{ dsc.global.gitOps.envName }}-dso-gitlabrunner
+              app: gitlab-runner
+          topologyKey: kubernetes.io/hostname

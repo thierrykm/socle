@@ -1,0 +1,43 @@
+certmanager:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-cert-manager
+              app.kubernetes.io/name: cert-manager
+              app.kubernetes.io/component: controller
+          topologyKey: kubernetes.io/hostname
+
+  webhook:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-cert-manager
+                app.kubernetes.io/name: webhook
+                app.kubernetes.io/component: webhook 
+            topologyKey: kubernetes.io/hostname
+
+  cainjector:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-cert-manager
+                app.kubernetes.io/name: cainjector
+                app.kubernetes.io/component: cainjector
+            topologyKey: kubernetes.io/hostname
+
+  startupapicheck-job:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-cert-manager
+                app.kubernetes.io/name: startupapicheck
+                app.kubernetes.io/component: startupapicheck
+            topologyKey: kubernetes.io/hostname

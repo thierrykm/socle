@@ -1,0 +1,77 @@
+harbor:
+  portal:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor
+                app.kubernetes.io/component: portal
+            topologyKey: kubernetes.io/hostname
+  
+  core:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor
+                app.kubernetes.io/component: core
+            topologyKey: kubernetes.io/hostname
+  
+  jobservice:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor
+                app.kubernetes.io/component: jobservice
+            topologyKey: kubernetes.io/hostname
+  
+  registry:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor
+                app.kubernetes.io/component: registry
+            topologyKey: kubernetes.io/hostname
+
+  trivy:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor 
+                app.kubernetes.io/component: trivy
+            topologyKey: kubernetes.io/hostname
+  
+  redis:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor 
+                app.kubernetes.io/component: redis
+            topologyKey: kubernetes.io/hostname
+  
+  exporter:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: {{ dsc.global.gitOps.envName }}-dso-harbor
+                app.kubernetes.io/name: harbor
+                app.kubernetes.io/component: exporter
+            topologyKey: kubernetes.io/hostname
